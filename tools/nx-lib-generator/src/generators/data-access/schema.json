@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "DataAccess",
+  "title": "A data access library for a given scope",
+  "type": "object",
+  "properties": {
+    "scope": {
+      "type": "string",
+      "description": "The scope/subscope of the library (Ex: billing, shared, shared/user).",
+      "x-priority": "important",
+      "x-prompt": "What scope would you like to use for the library?"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the library. Can be EMPTY if only one library of this type is being created in the scope.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-priority": "important"
+    },
+    "mocks": {
+      "type": "boolean",
+      "description": "Generate mock files for the library.",
+      "default": true
+    },
+    "skipTestsConfig": {
+      "type": "boolean",
+      "description": "Do not configure or create test files.",
+      "default": false
+    }
+  },
+  "required": [
+    "scope"
+  ]
+}

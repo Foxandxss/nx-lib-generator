@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "data-access": {
+      "factory": "./src/generators/data-access/generator",
+      "schema": "./src/generators/data-access/schema.json",
+      "description": "A data access library for a given scope"
+    }
+  }
+}
