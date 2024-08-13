@@ -1,4 +1,7 @@
-import { libraryGenerator as ngLibraryGenerator } from '@nx/angular/generators';
+import {
+  librarySecondaryEntryPointGenerator,
+  libraryGenerator as ngLibraryGenerator,
+} from '@nx/angular/generators';
 import {
   formatFiles,
   generateFiles,
@@ -20,12 +23,23 @@ export async function dataAccessGenerator(
   const options = applyDefaults(normalizedOptions);
 
   await ngLibraryGenerator(tree, options);
-  generateFiles(
-    tree,
-    joinPathFragments(__dirname, './files'),
-    readProjectConfiguration(tree, schema.name).root,
-    { name: schema.name, tpl: '' }
-  );
+
+  if (options['isApi']) {
+    generateFiles(
+      tree,
+      joinPathFragments(__dirname, './files'),
+      readProjectConfiguration(tree, options.name).root,
+      { name: options.nameForVariable }
+    );
+
+    await librarySecondaryEntryPointGenerator(tree, {
+      ...options,
+      skipModule: true,
+      name: 'mocks',
+      library: options.name,
+    });
+  }
+
   await formatFiles(tree);
 
   deleteComponent(tree, options);
