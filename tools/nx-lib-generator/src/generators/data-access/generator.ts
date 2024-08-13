@@ -1,25 +1,43 @@
+import { libraryGenerator as ngLibraryGenerator } from '@nx/angular/generators';
 import {
-  addProjectConfiguration,
   formatFiles,
   generateFiles,
+  joinPathFragments,
+  readProjectConfiguration,
   Tree,
 } from '@nx/devkit';
-import * as path from 'path';
+import { deleteComponent } from '../../helpers/delete-files';
+import { normalizeOptions } from '../../helpers/normalize';
+import { applyDefaults } from './helpers/defaults';
 import { DataAccessGeneratorSchema } from './schema';
 
 export async function dataAccessGenerator(
   tree: Tree,
-  options: DataAccessGeneratorSchema
+  schema: DataAccessGeneratorSchema
 ) {
-  const projectRoot = `libs/${options.name}`;
-  addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
-    projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
-    targets: {},
-  });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+  let normalizedOptions = await normalizeOptions(tree, schema, 'data-access');
+  normalizedOptions = { ...normalizedOptions, ...schema };
+  const options = applyDefaults(normalizedOptions);
+
+  await ngLibraryGenerator(tree, options);
+  generateFiles(
+    tree,
+    joinPathFragments(__dirname, './files'),
+    readProjectConfiguration(tree, schema.name).root,
+    { name: schema.name, tpl: '' }
+  );
   await formatFiles(tree);
+
+  deleteComponent(tree, options);
+
+  console.log('tree', tree);
+  return async () => {
+    console.log(`\nProject: --project ${options.name}\n`);
+    console.log(
+      `Can be used to generate additional components, service or perform other commands like`
+    );
+    console.log(`eg "nx g remove --project ${options.name}"\n`);
+  };
 }
 
 export default dataAccessGenerator;

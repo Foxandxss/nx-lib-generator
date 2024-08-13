@@ -1,6 +1,8 @@
-export interface DataAccessGeneratorSchema {
+import { BaseSchema } from '../../helpers/types';
+
+export type DataAccessGeneratorSchema = BaseSchema & {
   name: string;
   scope: string;
   skipTestConfig: boolean;
-  mocks: boolean;
-}
+  isApi: boolean;
+};

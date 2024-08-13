@@ -19,9 +19,9 @@
       },
       "x-priority": "important"
     },
-    "mocks": {
+    "isApi": {
       "type": "boolean",
-      "description": "Generate mock files for the library.",
+      "description": "Generate api with mocks",
       "default": true
     },
     "skipTestsConfig": {
