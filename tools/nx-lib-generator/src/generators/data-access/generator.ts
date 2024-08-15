@@ -29,7 +29,7 @@ export async function dataAccessGenerator(
       tree,
       joinPathFragments(__dirname, './files'),
       readProjectConfiguration(tree, options.name).root,
-      { name: options.nameForVariable }
+      { name: options.nameForVariable, tpl: '' }
     );
 
     await librarySecondaryEntryPointGenerator(tree, {

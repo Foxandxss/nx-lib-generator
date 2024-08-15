@@ -2,8 +2,12 @@
   "name": "@ngx/nx-lib-generator",
   "version": "0.0.1",
   "dependencies": {
-    "@nx/devkit": "19.5.7",
     "tslib": "^2.3.0"
+  },
+  "peerDependencies": {
+    "@nx/angular": ">=19.2.0 <20.0.0",
+    "@nx/devkit": ">=19.2.0 <20.0.0",
+    "@nx/eslint": ">=19.2.0 <20.0.0"
   },
   "type": "commonjs",
   "main": "./src/index.js",
