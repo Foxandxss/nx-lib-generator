@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.2](https://github.com/Foxandxss/nx-lib-generator/compare/v0.0.0...v0.0.2) (2024-08-15)
+
+
+### Bug Fixes
+
+* **data-access:** index.ts no longer includes .ts extension ([800d617](https://github.com/Foxandxss/nx-lib-generator/commit/800d617654193d55490ba1b78c39b7b95c5356fc))
+
 ## 0.0.0 (2024-08-15)
 
 
