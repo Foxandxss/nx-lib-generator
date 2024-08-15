@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.0.3](https://github.com/Foxandxss/nx-lib-generator/compare/v0.0.2...v0.0.3) (2024-08-15)
+
+
+### Features
+
+* **feature:** create feature generator ([9bb1d13](https://github.com/Foxandxss/nx-lib-generator/commit/9bb1d13599a96eb8f37e67f37bdfc4864293ec11))
+
 ## [0.0.2](https://github.com/Foxandxss/nx-lib-generator/compare/v0.0.0...v0.0.2) (2024-08-15)
 
 
