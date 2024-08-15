@@ -8,7 +8,7 @@ function extractVariableFromSchema(options: BaseSchema) {
   }
 
   if (options.scope.includes('/')) {
-    return options.scope.split('/')[1];
+    return options.scope.split('/')[options.scope.split('/').length - 1];
   } else {
     return options.scope;
   }
