@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "Feature",
+  "title": "",
+  "type": "object",
+  "properties": {
+    "scope": {
+      "type": "string",
+      "description": "The scope/subscope of the library (Ex: billing, shared, shared/user).",
+      "x-priority": "important",
+      "x-prompt": "What scope would you like to use for the library?"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the feature. Can be EMPTY if only one feature is being created in the scope.",
+      "$default": {
+        "$source": "argv",
+        "index": 0
+      },
+      "x-priority": "important",
+      "x-prompt": "What name would you like to use?"
+    },
+    "prefix": {
+      "type": "string",
+      "description": "The prefix used in the feature components ('lib' by default)",
+      "x-priority": "important",
+      "x-prompt": "What prefix to use?"
+    },
+    "skipRouting": {
+      "type": "boolean",
+      "description": "Do not create routing files.",
+      "default": false
+    },
+    "skipComponent": {
+      "type": "boolean",
+      "description": "Do not create a component.",
+      "default": false
+    },
+    "skipTestsConfig": {
+      "type": "boolean",
+      "description": "Do not configure or create test files.",
+      "default": false
+    }
+  },
+  "required": [
+    "scope"
+  ]
+}

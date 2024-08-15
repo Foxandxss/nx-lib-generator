@@ -1,0 +1,3 @@
+import { Route } from '@angular/router';
+
+export const <%= routerName %>Routes: Route[] = [];

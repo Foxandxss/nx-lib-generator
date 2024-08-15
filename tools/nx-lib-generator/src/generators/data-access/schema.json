@@ -12,7 +12,7 @@
     },
     "name": {
       "type": "string",
-      "description": "The name of the library. Can be EMPTY if only one library of this type is being created in the scope.",
+      "description": "The name of the data access library. Can be EMPTY if only one data-access is being created in the scope.",
       "$default": {
         "$source": "argv",
         "index": 0

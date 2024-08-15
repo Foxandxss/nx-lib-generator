@@ -14,11 +14,11 @@ function extractVariableFromSchema(options: BaseSchema) {
   }
 }
 
-export async function normalizeOptions(
+export async function normalizeOptions<T extends BaseSchema>(
   tree: Tree,
-  options: BaseSchema,
+  options: T,
   type: string
-): Promise<BaseSchema> {
+): Promise<T> {
   options.skipFormat;
   const { scope, name } = options;
 
