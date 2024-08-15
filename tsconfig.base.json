@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ngx/nx-lib-generator": ["tools/nx-lib-generator/src/index.ts"]
+      "@foxandxss/nx-lib-generator": ["tools/nx-lib-generator/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
