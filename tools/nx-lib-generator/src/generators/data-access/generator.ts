@@ -44,7 +44,6 @@ export async function dataAccessGenerator(
 
   deleteComponent(tree, options);
 
-  console.log('tree', tree);
   return async () => {
     console.log(`\nProject: --project ${options.name}\n`);
     console.log(
