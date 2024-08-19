@@ -4,7 +4,7 @@ import { FeatureBaseSchema } from './types';
 
 const DEFAULTS: Partial<FeatureBaseSchema> = {
   projectNameAndRootFormat: 'as-provided',
-  buildable: true,
+  buildable: false,
   publishable: false,
   linter: Linter.EsLint,
   unitTestRunner: UnitTestRunner.Jest,
@@ -28,5 +28,10 @@ export function applyDefaults(schema: FeatureBaseSchema): FeatureBaseSchema {
       lazy: true,
     };
   }
+
+  if (schema.scope === 'shared') {
+    defaults = { ...defaults, buildable: true };
+  }
+
   return { ...defaults, ...schema };
 }
