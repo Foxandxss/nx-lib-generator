@@ -29,9 +29,16 @@ export async function featureGenerator(
 
       generateFiles(
         tree,
-        joinPathFragments(__dirname, './files'),
+        joinPathFragments(__dirname, './filesWithRouter'),
         readProjectConfiguration(tree, options.name).root,
         { routerName, tpl: '' }
+      );
+    } else {
+      generateFiles(
+        tree,
+        joinPathFragments(__dirname, './filesWithoutRouter'),
+        readProjectConfiguration(tree, options.name).root,
+        { tpl: '' }
       );
     }
   }
