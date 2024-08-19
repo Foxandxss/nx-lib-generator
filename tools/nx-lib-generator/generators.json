@@ -9,6 +9,11 @@
       "factory": "./src/generators/feature/generator",
       "schema": "./src/generators/feature/schema.json",
       "description": "A feature library for a given scope"
+    },
+    "util": {
+      "factory": "./src/generators/util/generator",
+      "schema": "./src/generators/util/schema.json",
+      "description": "A util library for a given scope"
     }
   }
 }

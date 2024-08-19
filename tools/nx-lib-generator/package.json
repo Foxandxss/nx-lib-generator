@@ -2,6 +2,7 @@
   "name": "@foxandxss/nx-lib-generator",
   "version": "0.0.3",
   "dependencies": {
+    "@nx/devkit": "19.5.7",
     "tslib": "^2.3.0"
   },
   "peerDependencies": {
