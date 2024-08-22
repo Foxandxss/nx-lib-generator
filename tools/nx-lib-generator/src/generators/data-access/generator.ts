@@ -9,6 +9,7 @@ import {
   readProjectConfiguration,
   Tree,
 } from '@nx/devkit';
+import { createFolder } from '../../helpers/create-folder';
 import { deleteComponent } from '../../helpers/delete-files';
 import { normalizeOptions } from '../../helpers/normalize';
 import { applyDefaults } from './helpers/defaults';
@@ -45,6 +46,7 @@ export async function dataAccessGenerator(
   deleteComponent(tree, options);
 
   return async () => {
+    createFolder(normalizedOptions.directory, 'lib');
     console.log(`\nProject: --project ${options.name}\n`);
     console.log(
       `Can be used to generate additional components, service or perform other commands like`
