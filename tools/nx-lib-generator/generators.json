@@ -14,6 +14,11 @@
       "factory": "./src/generators/util/generator",
       "schema": "./src/generators/util/schema.json",
       "description": "A util library for a given scope"
+    },
+    "ui": {
+      "factory": "./src/generators/ui/generator",
+      "schema": "./src/generators/ui/schema.json",
+      "description": "A ui library for a given scope"
     }
   }
 }
