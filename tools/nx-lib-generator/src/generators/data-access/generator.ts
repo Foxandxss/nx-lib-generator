@@ -39,6 +39,13 @@ export async function dataAccessGenerator(
       name: 'mocks',
       library: options.name,
     });
+  } else {
+    generateFiles(
+      tree,
+      joinPathFragments(__dirname, './filesNoApi'),
+      readProjectConfiguration(tree, options.name).root,
+      { tpl: '' }
+    );
   }
 
   await formatFiles(tree);
