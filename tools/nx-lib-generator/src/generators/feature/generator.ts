@@ -24,7 +24,14 @@ export async function featureGenerator(
   if (options.skipComponent) {
     deleteComponent(tree, options);
 
-    if (!options.skipRouting) {
+    if (options.skipRouting) {
+      generateFiles(
+        tree,
+        joinPathFragments(__dirname, './filesWithoutRouter'),
+        readProjectConfiguration(tree, options.name).root,
+        { tpl: '' }
+      );
+    } else {
       const routerName = camelize(options.name);
 
       generateFiles(
@@ -32,13 +39,6 @@ export async function featureGenerator(
         joinPathFragments(__dirname, './filesWithRouter'),
         readProjectConfiguration(tree, options.name).root,
         { routerName, tpl: '' }
-      );
-    } else {
-      generateFiles(
-        tree,
-        joinPathFragments(__dirname, './filesWithoutRouter'),
-        readProjectConfiguration(tree, options.name).root,
-        { tpl: '' }
       );
     }
   }
